@@ -14,4 +14,4 @@ npm run dev
 
 ## 二维码生成界面
 
-![qrcode](./src/assets/logo.png)
+![demo](./src/assets/demo.png)
