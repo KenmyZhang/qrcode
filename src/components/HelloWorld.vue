@@ -1,8 +1,20 @@
 <template>
   <div id="qrcode">
     <div>
-      <p>二维码大小</p>
-      <Input v-model="qrSize" type="textarea" :rows="1" placeholder="二维码大小,默认200" />
+      <p>空白区的颜色, 默认白色#000</p>
+      <Input v-model="colorLight" type="textarea" :rows="1" placeholder="#000" />
+    </div>
+    <div>
+      <p>实点的颜色, 默认黑色#fff</p>
+      <Input v-model="colorDark" type="textarea" :rows="1" placeholder="#fff" />
+    </div>
+    <div>
+      <p>logo大小,默认0.2</p>
+      <Input v-model="logoSize" type="textarea" :rows="1" placeholder="0.2" />
+    </div>
+    <div>
+      <p>二维码大小,默认200</p>
+      <Input v-model="qrSize" type="textarea" :rows="1" placeholder="200" />
     </div>
     <div>
       <p>二维码内容</p>
@@ -14,10 +26,10 @@
       <vue-qr
       :logoCornerRadius="0.1"
       :logoSrc="imagePath"
-      :logoScale="0.2"
+      :logoScale="logoSize"
       :text="content"
-      colorDark="#000"
-      colorLight="#fff"
+      :colorDark="colorDark"
+      :colorLight="colorLight"
       :size="qrSize"
       :margin="0"
       :whiteMargin="true"
@@ -38,10 +50,12 @@ export default {
     return {
       content: '请输入二维码内容',
       qrSize: '200',
+      logoSize: '0.2',
       imgName: '',
       visible: false,
       logoFile: '',
-      value: 'www.baidu.com',
+      colorLight: '#000',
+      colorDark: '#fff',
       imagePath: require('../assets/logo.png')
     }
   },
